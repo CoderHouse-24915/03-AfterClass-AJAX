@@ -8,28 +8,29 @@
 	</head>
 	<body>
 		<button id="button">Obtener Texto</button>
+
+		<script>
+			// Create ADD EVENT LISTENER
+			document.getElementById('button').addEventListener('click', loadText);
+
+			// Crear nuestra función loadText
+			function loadText() {
+				// 1 - CREAR OBJETO XHR
+				var xhr = new XMLHttpRequest();
+
+				//console.log(xhr);
+				// 2 - OPEN - method type - url/file - async?
+				xhr.open('GET', 'sample.txt', true);
+				// 3 - ON LOAD - check status
+				xhr.onload = function () {
+					// Check Status
+					if (this.status === 200) {
+						console.log(this.responseText);
+					}
+				};
+				// 4 - SEND REQUEST
+				xhr.send();
+			}
+		</script>
 	</body>
-
-	<script>
-		// Create AddEventListener
-		document.getElementById('button').addEventListener('click', loadText);
-
-		// Crear nuestra funcion loadText
-		function loadText() {
-			// 1 - Create XHR Object
-			var xhr = new XMLHttpRequest();
-			// console.log(xhr);
-			// 2 - OPEN - method type - url/file - async?
-			xhr.open('GET', 'sample.txt', true);
-			// 3 - ON LOAD - Check Status
-			xhr.onload = function () {
-				// Check Status
-				if (this.status === 200) {
-					console.log(this.responseText);
-				}
-			};
-			// 4 - SEND REQUEST
-			xhr.send();
-		}
-	</script>
 </html>

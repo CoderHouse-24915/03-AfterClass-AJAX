@@ -23,9 +23,9 @@
 
 			xhr.onload = function () {
 				if (this.status === 200) {
-					// console.log(this.responseText);
 					var users = JSON.parse(this.responseText);
 					// console.log(users);
+
 					var output = '';
 
 					for (var i in users) {

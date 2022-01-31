@@ -29,7 +29,7 @@
 				if (this.status === 200) {
 					// console.log(this.responseText);
 					var user = JSON.parse(this.responseText);
-					// console.log(user.name, user.id);
+					// console.log(user.email);
 					var output = '';
 
 					output +=
@@ -51,6 +51,8 @@
 			xhr.send();
 		}
 
+		//// USUARIOS
+
 		// Create Event Listener
 		document.getElementById('button2').addEventListener('click', loadUsers);
 
@@ -61,10 +63,11 @@
 
 			xhr.onload = function () {
 				if (this.status === 200) {
-					// console.log(this.responseText);
 					var users = JSON.parse(this.responseText);
-					//console.log(users);
+					// console.log(users);
+
 					var output = '';
+
 					for (var i in users) {
 						output +=
 							'<ul>' +
